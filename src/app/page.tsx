@@ -294,7 +294,7 @@ const SesionsCard = ({title, img, url}:{title: string, img:string, url:string}) 
                     initial='initial'
                     animate={hover ? 'animate' : 'initial'}
                     exit='exit'
-                className='min-w-[60px] min-h-[60px] max-w-[60px] max-h-[60px] rounded-full border-[2px] border-white flex justify-center items-center'>
+                    className='min-w-[60px] min-h-[60px] max-w-[60px] max-h-[60px] rounded-full border-[2px] border-white flex justify-center items-center self-end'>
                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M24.5 2C24.5 1.17157 23.8284 0.500001 23 0.500001H9.5C8.67157 0.500001 8 1.17157 8 2C8 2.82843 8.67157 3.5 9.5 3.5L21.5 3.5L21.5 15.5C21.5 16.3284 22.1716 17 23 17C23.8284 17 24.5 16.3284 24.5 15.5V2ZM3.06066 24.0607L24.0607 3.06066L21.9393 0.93934L0.93934 21.9393L3.06066 24.0607Z" fill="white"/>
                     </svg> 
@@ -307,7 +307,7 @@ const SesionsCard = ({title, img, url}:{title: string, img:string, url:string}) 
 function Selection3() {
     
     return (
-        <div className='h-screen bg-white rounded-sm overflow-hidden sticky top-0 py-10 px-8  grid grid-cols-2 gap-10 grid-rows-3 2xl:py-32'>
+        <div className='h-screen bg-white rounded-sm overflow-hidden  py-10 px-8  grid grid-cols-2 gap-10 grid-rows-3 2xl:py-24'>
             <div className='w-full h-full bg-[#000000] row-span-2 relative  cursor-pointer'>
             <SesionsCard title={"Summer Collection"} img={"/images/summer.jpg"} url={"/"}/>
      
@@ -396,7 +396,7 @@ const BestsellerCard = ({img, title, description, price, url}:{img:string, title
 function Selection4() {
     
     return (
-        <div className='min-h-screen h-fit bg-white rounded-sm overflow-hidden   sticky 3xl:top-0  md:-top-1/2 -top-[calc(100%+620px)] py-10 flex flex-col items-center gap-28'>
+        <div className='min-h-screen h-fit bg-white rounded-sm overflow-hidden   py-10 flex flex-col items-center gap-28'>
             <div className='flex flex-col items-center gap-20'>
                 <p className='text-4xl font-bold  px-11'>
                     Our Bestseller
@@ -418,16 +418,40 @@ function Selection4() {
                 <BestsellerCard img={"/images/bestseller2.jpg"} title={"T-shirt with a print"} description={"t-shirt with a print and a round neck"} price={"$ 29.99"} url={"/"}/>
                 <BestsellerCard img={"/images/bestseller3.jpg"} title={"T-shirt with a print"} description={"t-shirt with a print and a round neck"} price={"$ 29.99"} url={"/"}/>
                 <BestsellerCard img={"/images/bestseller4.jpg"} title={"T-shirt with a print"} description={"t-shirt with a print and a round neck"} price={"$ 29.99"} url={"/"}/>
+                <BestsellerCard img={"/images/bestseller1.jpg"} title={"T-shirt with a print"} description={"t-shirt with a print and a round neck"} price={"$ 29.99"} url={"/"}/>
+                <BestsellerCard img={"/images/bestseller2.jpg"} title={"T-shirt with a print"} description={"t-shirt with a print and a round neck"} price={"$ 29.99"} url={"/"}/>
+                <BestsellerCard img={"/images/bestseller3.jpg"} title={"T-shirt with a print"} description={"t-shirt with a print and a round neck"} price={"$ 29.99"} url={"/"}/>
+                <BestsellerCard img={"/images/bestseller4.jpg"} title={"T-shirt with a print"} description={"t-shirt with a print and a round neck"} price={"$ 29.99"} url={"/"}/>
             </div>
             
         </div>
     )
 }
 function Selection5() {
-    
+    const hedden = {
+        initial: {
+            opacity: 0,
+        },
+        animate: {
+            opacity: 1,
+            transition: {
+                duration: 1,
+                ease: 'easeIn'
+            }
+        },
+        exit: {
+            opacity: 0,
+            transition: {
+                duration: 0.7,
+                ease: 'easeIn'
+            }
+        }
+    }
+    const [hoverBlog1, setHoverBlog1] = useState(false)
+    const [hoverBlog2, setHoverBlog2] = useState(false)
     return (
-        <div className='h-screen bg-white rounded-sm overflow-hidden sticky top-0 flex  flex-col items-center justify-around '>
-            <div className='w-full h-[80%] flex  items-center gap-10'>
+        <div className=' bg-white rounded-sm overflow-hidden sticky top-0 flex py-28 flex-col items-center justify-around '>
+            <div className='w-full h-[80%] flex  items-start gap-5'>
                 <div className='w-[60%] h-full flex flex-col  gap-10'>
                     <div>
                         <p className='text-5xl font-bold  px-11'>
@@ -437,16 +461,30 @@ function Selection5() {
                             {'Join us on a sartorial journey, where each post is a fashion tale waiting to unfold.'}
                         </p>
                     </div>
-                    <div className='grid grid-cols-2 gap-10 px-11'>
-                        <div className='w-full min-h-full '>
-                            <div className='w-full h-[450px] relative bg-black'>
+                    <div className='flex justify-center h-full gap-10 px-11'>
+                        <div className='w-full min-h-full cursor-pointer group'
+                            onMouseEnter={() => setHoverBlog1(true)}
+                            onMouseLeave={() => setHoverBlog1(false)}
+                        >
+                            <div className='w-full h-[350px] relative bg-black'>
                                 <Image
                                     src={"/images/hotBlog3.jpg"}
                                     alt=""
                                     width={1900}
                                     height={1080}
-                                    className='object-cover w-full h-full absolute top-0 left-0 z-0'
+                                    className='object-cover w-full h-full absolute top-0 left-0 z-0 group-hover:opacity-50 transition-all duration-500'
                                 />
+                                <motion.div
+                                    variants={hedden}
+                                    initial='initial'
+                                    animate={hoverBlog1 ? 'animate' : 'initial'}
+                                    exit='exit'
+
+                                    className='min-w-[60px] min-h-[60px] max-w-[60px] max-h-[60px] rounded-full border-[2px] border-white flex justify-center items-center z-10 absolute right-3 bottom-3'>
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24.5 2C24.5 1.17157 23.8284 0.500001 23 0.500001H9.5C8.67157 0.500001 8 1.17157 8 2C8 2.82843 8.67157 3.5 9.5 3.5L21.5 3.5L21.5 15.5C21.5 16.3284 22.1716 17 23 17C23.8284 17 24.5 16.3284 24.5 15.5V2ZM3.06066 24.0607L24.0607 3.06066L21.9393 0.93934L0.93934 21.9393L3.06066 24.0607Z" fill="white" />
+                                    </svg>
+                                </motion.div>
                             </div>
                             <div>
                                 <p className='text-2xl text-black mt-4 font-medium capitalize' style={RobotoFont.style}>
@@ -457,15 +495,28 @@ function Selection5() {
                                 </p>
                             </div>
                         </div>
-                        <div className='w-full min-h-full '>
-                            <div className='w-full h-[450px] relative bg-black'>
+                        <div className='w-full min-h-full cursor-pointer group'
+                            onMouseEnter={() => setHoverBlog2(true)}
+                            onMouseLeave={() => setHoverBlog2(false)}
+                        >
+                            <div className='w-full h-[350px] relative bg-black'>
                                 <Image
                                     src={"/images/hotBlog2.jpg"}
                                     alt=""
                                     width={1900}
                                     height={1080}
-                                    className='object-cover w-full h-full absolute top-0 left-0 z-0'
+                                    className='object-cover w-full h-full absolute top-0 left-0 z-0 group-hover:opacity-50 transition-all duration-500'
                                 />
+                                <motion.div
+                                    variants={hedden}
+                                    initial='initial'
+                                    animate={hoverBlog2 ? 'animate' : 'initial'}
+                                    exit='exit'
+                                    className='min-w-[60px] min-h-[60px] max-w-[60px] max-h-[60px] rounded-full border-[2px] border-white flex justify-center items-center z-10 absolute right-3 bottom-3'>
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24.5 2C24.5 1.17157 23.8284 0.500001 23 0.500001H9.5C8.67157 0.500001 8 1.17157 8 2C8 2.82843 8.67157 3.5 9.5 3.5L21.5 3.5L21.5 15.5C21.5 16.3284 22.1716 17 23 17C23.8284 17 24.5 16.3284 24.5 15.5V2ZM3.06066 24.0607L24.0607 3.06066L21.9393 0.93934L0.93934 21.9393L3.06066 24.0607Z" fill="white" />
+                                    </svg>
+                                </motion.div>
                             </div>
                             <div>
                                 <p className='text-2xl text-black mt-4 font-medium capitalize' style={RobotoFont.style}>
@@ -476,12 +527,9 @@ function Selection5() {
                                 </p>
                             </div>
                         </div>
-                        {/* <div className='w-full h-full bg-black'>
-                            .
-                        </div> */}
                     </div>
                 </div>
-                <div className='w-[40%] h-full flex relative flex-col py-4 justify-between items-center gap-10 bg-black'>
+                <div className='w-[40%] h-[800px] flex relative flex-col py-4  mt-2 mr-11 overflow-hidden justify-between items-center gap-10 bg-black'>
                     <Image
                         src={"/images/hotBlog1.jpg"}
                         alt=""
@@ -516,7 +564,15 @@ function Selection5() {
                     </div>
                 </div>
             </div>
-            <div className='flex justify-between items-center px-11 bg-black h-fit w-full'>
+           
+        </div>
+    )
+}
+
+function Footer() {
+    return (
+        <div className='h bg-black rounded-sm overflow-hidden sticky top-0 pt-8 px-11'>
+             <div className='flex justify-between items-center  bg-black h-fit w-full'>
                 <div className=' flex flex-col justify-start items-start  py-6 z-10'>
                     <p className='text-2xl text-white text-center font-medium' style={RobotoFont.style}>
                         Shop now, save more, enjoy life
@@ -554,9 +610,200 @@ function Selection5() {
                     </div>
                 </div>
             </div>
+            <div className='mt-11 grid grid-cols-2'>
+                <div className='flex flex-col justify-start items-start gap-5'>
+                    <div>
+                        <div className='flex gap-1 items-center'>
+                            <Image
+                                src={"/logo-w.svg"}
+                                alt=""
+                                width={1900}
+                                height={1080}
+                                className='object-cover w-[70px] z-0'
+                            />
+                            <p className='text-white text-5xl font-medium' style={RobotoFont.style}>
+                                GarbGallery
+                            </p>
+                        </div>
+                        <p className='text-white text-xl mt-3' style={CaveatFont.style}>
+                        {`Treat yourself today - you've earned it!Treat yourself today - you've earned it!Treat yourself today`}
+                        </p>
+                    </div>
+                    <div className=''>
+                        <p className='text-white text-2xl font-bold' style={RobotoFont.style}>
+                            {`Contact Us`}
+                        </p>
+                        <span className='flex gap-3 items-center mt-5'>
+                            <span>
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.8422 1.8469C17.8724 1.7338 17.9245 1.62776 17.9957 1.53483C18.0668 1.4419 18.1556 1.36391 18.2569 1.30532C18.3583 1.24673 18.4702 1.20869 18.5862 1.19337C18.7022 1.17805 18.8202 1.18575 18.9332 1.21604C21.0844 1.77716 23.047 2.90164 24.619 4.47362C26.191 6.0456 27.3155 8.00826 27.8766 10.1594C27.9069 10.2725 27.9146 10.3904 27.8992 10.5064C27.8839 10.6225 27.8459 10.7343 27.7873 10.8357C27.7287 10.937 27.6507 11.0258 27.5578 11.0969C27.4649 11.1681 27.3588 11.2203 27.2457 11.2504C27.1707 11.2704 27.0933 11.2804 27.0156 11.2801C26.8194 11.2802 26.6286 11.2155 26.473 11.0961C26.3173 10.9766 26.2054 10.8091 26.1547 10.6196C25.673 8.77179 24.7072 7.0859 23.357 5.73566C22.0067 4.38542 20.3208 3.41966 18.4731 2.93791C18.36 2.90776 18.2539 2.85561 18.161 2.78445C18.0681 2.71328 17.9901 2.6245 17.9315 2.52317C17.8729 2.42184 17.8349 2.30996 17.8195 2.19392C17.8042 2.07788 17.8119 1.95996 17.8422 1.8469ZM17.2856 7.68791C19.4453 8.26385 20.8288 9.64729 21.4047 11.8071C21.4554 11.9966 21.5673 12.1641 21.723 12.2836C21.8786 12.403 22.0694 12.4677 22.2656 12.4676C22.3433 12.4679 22.4207 12.4579 22.4957 12.4379C22.6088 12.4078 22.7149 12.3556 22.8078 12.2844C22.9007 12.2133 22.9787 12.1245 23.0373 12.0232C23.0959 11.9218 23.1339 11.81 23.1492 11.6939C23.1646 11.5779 23.1569 11.46 23.1266 11.3469C22.3844 8.56963 20.523 6.70823 17.7457 5.96604C17.6327 5.93582 17.5148 5.92818 17.3987 5.94353C17.2827 5.95888 17.1709 5.99693 17.0696 6.05551C16.8649 6.17382 16.7157 6.36856 16.6547 6.5969C16.5937 6.82523 16.6259 7.06846 16.7442 7.27306C16.8625 7.47767 17.0572 7.62689 17.2856 7.68791ZM29.0774 22.0864C28.8231 24.0268 27.8709 25.8082 26.3987 27.0976C24.9265 28.387 23.0352 29.0962 21.0781 29.0926C9.45548 29.0926 1.48025e-05 19.6371 1.48025e-05 8.01448C-0.00373437 6.05813 0.704825 4.16733 1.99334 2.69525C3.28185 1.22317 5.0622 0.270493 7.00181 0.0151799C7.44831 -0.0390806 7.90036 0.0529852 8.29007 0.277551C8.67978 0.502116 8.98611 0.847058 9.16306 1.26057L12.2951 8.25198C12.4334 8.56849 12.4906 8.91447 12.4616 9.25865C12.4325 9.60283 12.3182 9.93435 12.1288 10.2232C12.1097 10.2526 12.0889 10.2809 12.0665 10.3078L8.93892 14.0277C8.91993 14.0662 8.91006 14.1086 8.91006 14.1516C8.91006 14.1946 8.91993 14.237 8.93892 14.2756C10.076 16.6031 12.5163 19.0256 14.8764 20.1611C14.9158 20.1791 14.9589 20.1876 15.0022 20.1861C15.0454 20.1845 15.0878 20.1729 15.1258 20.1522L18.7907 17.035C18.8169 17.0123 18.8447 16.9914 18.8738 16.9727C19.1614 16.7809 19.4923 16.664 19.8365 16.6323C20.1807 16.6007 20.5274 16.6555 20.8451 16.7916L27.8573 19.934C28.2653 20.1148 28.6042 20.4222 28.824 20.8106C29.0437 21.1991 29.1326 21.6479 29.0774 22.0908V22.0864ZM27.3125 21.8667C27.3175 21.8046 27.3028 21.7425 27.2706 21.6893C27.2384 21.636 27.1902 21.5942 27.1329 21.5698L20.1192 18.4274C20.0809 18.4126 20.0399 18.4063 19.9989 18.4088C19.9579 18.4114 19.9179 18.4228 19.8817 18.4422L16.2183 21.5594C16.1916 21.5817 16.1634 21.6024 16.1352 21.6217C15.8363 21.821 15.491 21.9394 15.1327 21.9654C14.7745 21.9915 14.4157 21.9242 14.0912 21.7702C11.3659 20.4535 8.64947 17.7624 7.33283 15.0623C7.17797 14.7397 7.10903 14.3826 7.1327 14.0255C7.15636 13.6685 7.27183 13.3236 7.4679 13.0242C7.48702 12.9945 7.50836 12.9662 7.53173 12.9396L10.6578 9.21979C10.6757 9.18091 10.6849 9.13863 10.6849 9.09584C10.6849 9.05306 10.6757 9.01078 10.6578 8.9719L7.53173 1.97456C7.5111 1.9184 7.47399 1.86978 7.42525 1.83508C7.37651 1.80038 7.31843 1.78122 7.25861 1.7801H7.22447C5.71477 1.98092 4.32978 2.72438 3.32812 3.87163C2.32646 5.01888 1.77662 6.49149 1.78126 8.01448C1.78126 18.6545 10.4381 27.3114 21.0781 27.3114C22.6013 27.316 24.0741 26.7659 25.2214 25.7639C26.3687 24.762 27.112 23.3766 27.3125 21.8667Z" fill="#FFFBFB"/>
+                                </svg> 
+                            </span>
+                            <p className='text-white text-lg hover:underline cursor-pointer' style={RobotoFont.style}>
+                                +212667724196
+                            </p>
+                        </span>
+                        <span className='flex gap-3 items-center mt-5'>
+                            <span>
+                                <svg width="29" height="23" viewBox="0 0 29 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2.5 2.5L11.662 9.418L11.665 9.421C12.682 10.1665 13.1905 10.54 13.7485 10.684C14.2414 10.8115 14.7586 10.8115 15.2515 10.684C15.8095 10.54 16.3195 10.1665 17.3395 9.418C17.3395 9.418 23.215 4.909 26.5 2.5M1 17.2L1 5.8C1 4.12 1 3.28 1.327 2.638C1.615 2.0725 2.0725 1.615 2.638 1.327C3.28 1 4.12 1 5.8 1L23.2 1C24.88 1 25.72 1 26.3605 1.327C26.926 1.615 27.385 2.0725 27.673 2.638C28 3.2785 28 4.1185 28 5.7955L28 17.206C28 18.883 28 19.72 27.673 20.362C27.3848 20.9266 26.9254 21.3855 26.3605 21.673C25.72 22 24.8815 22 23.2045 22L5.7955 22C4.1185 22 3.2785 22 2.638 21.673C2.07354 21.3854 1.61462 20.9265 1.327 20.362C1 19.72 1 18.88 1 17.2Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>  
+                            </span>
+                            <p className='text-white text-lg hover:underline cursor-pointer' style={RobotoFont.style}>
+                                achraf.sabbar2002@gmail.com
+                            </p>
+                        </span>
+                        <span className='flex gap-3 items-start mt-5 '>
+                            <span className='pt-1'>
+                                <svg width="24" height="29" viewBox="0 0 24 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fillRule="evenodd" clipRule="evenodd" d="M6.03125 12.2147C6.03125 10.5068 6.7097 8.86889 7.91735 7.66124C9.12499 6.4536 10.7629 5.77515 12.4708 5.77515C14.1787 5.77515 15.8166 6.4536 17.0242 7.66124C18.2319 8.86889 18.9103 10.5068 18.9103 12.2147C18.9103 13.9226 18.2319 15.5605 17.0242 16.7681C15.8166 17.9758 14.1787 18.6542 12.4708 18.6542C10.7629 18.6542 9.125 17.9758 7.91735 16.7681C6.7097 15.5605 6.03125 13.9226 6.03125 12.2147ZM12.4708 7.80868C11.3022 7.80868 10.1816 8.27289 9.35528 9.09917C8.52899 9.92546 8.06479 11.0461 8.06479 12.2147C8.06479 13.3832 8.52899 14.5039 9.35528 15.3302C10.1816 16.1565 11.3022 16.6207 12.4708 16.6207C13.6393 16.6207 14.76 16.1565 15.5863 15.3302C16.4126 14.5039 16.8768 13.3832 16.8768 12.2147C16.8768 11.0461 16.4126 9.92546 15.5863 9.09917C14.76 8.27289 13.6393 7.80868 12.4708 7.80868Z" fill="white"/>
+                                    <path fillRule="evenodd" clipRule="evenodd" d="M0.97849 10.665C1.21021 7.85443 2.49039 5.23372 4.56486 3.32326C6.63932 1.41279 9.35636 0.352286 12.1765 0.352295L12.7622 0.352295C15.5823 0.352286 18.2994 1.41279 20.3738 3.32326C22.4483 5.23372 23.7285 7.85443 23.9602 10.665C24.2181 13.7957 23.2509 16.9043 21.2624 19.3361L14.7645 27.2818C14.4864 27.6218 14.1363 27.8958 13.7393 28.084C13.3424 28.2722 12.9086 28.3698 12.4693 28.3698C12.0301 28.3698 11.5963 28.2722 11.1993 28.084C10.8024 27.8958 10.4522 27.6218 10.1742 27.2818L3.67632 19.3361C1.68768 16.9044 0.720482 13.7957 0.97849 10.665ZM12.1765 2.38583C9.86706 2.38618 7.64217 3.25487 5.94347 4.81946C4.24477 6.38406 3.19645 8.53017 3.00661 10.8318C2.79186 13.4372 3.59672 16.0243 5.25163 18.0481L11.7495 25.9952C11.8368 26.1021 11.9468 26.1883 12.0716 26.2474C12.1963 26.3066 12.3326 26.3373 12.4707 26.3373C12.6087 26.3373 12.7451 26.3066 12.8698 26.2474C12.9945 26.1883 13.1046 26.1021 13.1919 25.9952L19.6898 18.0481C21.3437 16.0239 22.1476 13.4369 21.9321 10.8318C21.7422 8.52993 20.6937 6.38363 18.9947 4.819C17.2957 3.25438 15.0705 2.38584 12.7608 2.38583L12.1765 2.38583Z" fill="white"/>
+                                </svg> 
+                            </span>
+                            <p className='text-white text-lg hover:underline cursor-pointer' style={RobotoFont.style}>
+                            7423 Maple Lane Brentwood, <br/>New York 11717
+                            </p>
+                        </span>
+                    </div>
+                    <div className='grid grid-cols-2 gap-5 '>
+                        <div>
+                            <p className='text-white text-2xl font-bold' style={RobotoFont.style}>
+                                Service 
+                            </p>
+                            <div className='grid grid-cols-2 gap-2 mt-3'>
+                                <p className='text-white text-lg hover:underline cursor-pointer' style={RobotoFont.style}>
+                                    About Us
+                                </p>
+                                <p className='text-white text-lg hover:underline cursor-pointer' style={RobotoFont.style}>
+                                    Blog
+                                </p>
+                                <p className='text-white text-lg hover:underline cursor-pointer col-span-2' style={RobotoFont.style}>
+                                    Careers
+                                </p>
+                                <p className='text-white text-lg hover:underline cursor-pointe col-span-2r' style={RobotoFont.style}>
+                                    Delivery Information
+                                </p>
+                            </div>
+                        </div>
+                        <div className='pr-5'>
+                            <p className='text-white text-2xl font-bold' style={RobotoFont.style}>
+                            Subscribe 
+                            </p>
+                            <p className='text-white  mt-2' style={RobotoFont.style}>
+                            Enter your email below to be the first to know about new collections and product launches.
+                            </p>
+                            <div className='flex p-3 items-center gap-2 border-[1.5px] border-white rounded-xl mt-3'>
+                                <span>
+                                    <svg width="25" height="19" viewBox="0 0 25 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.27778 2.21429L10.0824 7.81457L10.085 7.817C10.9513 8.4205 11.3845 8.72286 11.8598 8.83943C12.2797 8.94267 12.7203 8.94267 13.1402 8.83943C13.6155 8.72286 14.0499 8.4205 14.9188 7.81457C14.9188 7.81457 19.9239 4.16443 22.7222 2.21429M1 14.1143L1 4.88571C1 3.52571 1 2.84571 1.27856 2.326C1.52389 1.86821 1.91361 1.49786 2.39533 1.26471C2.94222 1 3.65778 1 5.08889 1L19.9111 1C21.3422 1 22.0578 1 22.6034 1.26471C23.0851 1.49786 23.4761 1.86821 23.7214 2.326C24 2.8445 24 3.5245 24 4.88207L24 14.1191C24 15.4767 24 16.1543 23.7214 16.674C23.476 17.131 23.0846 17.5025 22.6034 17.7353C22.0578 18 21.3435 18 19.9149 18L5.08506 18C3.6565 18 2.94094 18 2.39533 17.7353C1.9145 17.5025 1.52356 17.1309 1.27856 16.674C1 16.1543 1 15.4743 1 14.1143Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg> 
+                                </span>
+                                <input type="text"  className='w-full e bg-transparent' placeholder='Your Email'/>
+                                <span>
+                                    <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24.7071 8.7071C25.0976 8.31658 25.0976 7.68342 24.7071 7.29289L18.3431 0.928931C17.9526 0.538406 17.3195 0.538406 16.9289 0.928931C16.5384 1.31946 16.5384 1.95262 16.9289 2.34314L22.5858 8L16.9289 13.6569C16.5384 14.0474 16.5384 14.6805 16.9289 15.0711C17.3195 15.4616 17.9526 15.4616 18.3431 15.0711L24.7071 8.7071ZM8.74228e-08 9L24 9L24 7L-8.74228e-08 7L8.74228e-08 9Z" fill="white"/>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className='w-full h-full text-white rounded-sm overflow-hidden '>
+                    <div className='flex flex-col gap-4 items-center w-full'>
+                        <p className='text-6xl font-bold w-fit' style={RobotoFont.style}>
+                            Follow Us <span className='text-[#f8b34bef]'>On !</span>
+                        </p>
+                        <div className='flex gap-3 items-center'>
+                            <div className='w-[80px] h-[80px] rounded-full border-[1.5px] border-[#f8b34bef] flex justify-center items-center'>
+                                <svg width="46" height="55" viewBox="0 0 46 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.8787 54.1213C22.0503 55.2929 23.9497 55.2929 25.1213 54.1213L44.2132 35.0294C45.3848 33.8579 45.3848 31.9584 44.2132 30.7868C43.0416 29.6152 41.1421 29.6152 39.9706 30.7868L23 47.7574L6.02944 30.7868C4.85786 29.6152 2.95837 29.6152 1.7868 30.7868C0.615222 31.9584 0.615222 33.8579 1.7868 35.0294L20.8787 54.1213ZM20 -8.06981e-08L20 52L26 52L26 8.06981e-08L20 -8.06981e-08Z" fill="white"/>
+                                </svg> 
+                            </div>
+                            <div className='w-[80px] h-[80px] rounded-full bg-[#f8b34bef] flex justify-center items-center'>
+                                <svg width="46" height="55" viewBox="0 0 46 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.8787 54.1213C22.0503 55.2929 23.9497 55.2929 25.1213 54.1213L44.2132 35.0294C45.3848 33.8579 45.3848 31.9584 44.2132 30.7868C43.0416 29.6152 41.1421 29.6152 39.9706 30.7868L23 47.7574L6.02944 30.7868C4.85786 29.6152 2.95837 29.6152 1.7868 30.7868C0.615222 31.9584 0.615222 33.8579 1.7868 35.0294L20.8787 54.1213ZM20 -8.06981e-08L20 52L26 52L26 8.06981e-08L20 -8.06981e-08Z" fill="white"/>
+                                </svg> 
+                            </div>
+                        </div>
+                        <Link href={"/"} className='flex py-1 gap-2 w-[70%] border-[1.5px] border-white justify-center items-center rounded-full'>
+                            <p className='text-xl ' style={RobotoFont.style}>
+                                Instagram
+                            </p>
+                            <span className='-rotate-[120deg]'>
+                                <svg width="15" height="46" viewBox="0 0 46 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.8787 54.1213C22.0503 55.2929 23.9497 55.2929 25.1213 54.1213L44.2132 35.0294C45.3848 33.8579 45.3848 31.9584 44.2132 30.7868C43.0416 29.6152 41.1421 29.6152 39.9706 30.7868L23 47.7574L6.02944 30.7868C4.85786 29.6152 2.95837 29.6152 1.7868 30.7868C0.615222 31.9584 0.615222 33.8579 1.7868 35.0294L20.8787 54.1213ZM20 -8.06981e-08L20 52L26 52L26 8.06981e-08L20 -8.06981e-08Z" fill="white"/>
+                                </svg> 
+                            </span>
+                        </Link>
+                        <Link href={"/"} className='flex py-1 gap-2 w-[70%] border-[1.5px] border-white justify-center items-center rounded-full'>
+                            <p className='text-xl ' style={RobotoFont.style}>
+                            Facebook
+                            </p>
+                            <span className='-rotate-[120deg]'>
+                                <svg width="15" height="46" viewBox="0 0 46 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.8787 54.1213C22.0503 55.2929 23.9497 55.2929 25.1213 54.1213L44.2132 35.0294C45.3848 33.8579 45.3848 31.9584 44.2132 30.7868C43.0416 29.6152 41.1421 29.6152 39.9706 30.7868L23 47.7574L6.02944 30.7868C4.85786 29.6152 2.95837 29.6152 1.7868 30.7868C0.615222 31.9584 0.615222 33.8579 1.7868 35.0294L20.8787 54.1213ZM20 -8.06981e-08L20 52L26 52L26 8.06981e-08L20 -8.06981e-08Z" fill="white"/>
+                                </svg> 
+                            </span>
+                        </Link>
+                        <Link href={"/"} className='flex py-1 gap-2 w-[70%] border-[1.5px] border-white justify-center items-center rounded-full'>
+                            <p className='text-xl ' style={RobotoFont.style}>
+                            Twitter
+                            </p>
+                            <span className='-rotate-[120deg]'>
+                                <svg width="15" height="46" viewBox="0 0 46 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.8787 54.1213C22.0503 55.2929 23.9497 55.2929 25.1213 54.1213L44.2132 35.0294C45.3848 33.8579 45.3848 31.9584 44.2132 30.7868C43.0416 29.6152 41.1421 29.6152 39.9706 30.7868L23 47.7574L6.02944 30.7868C4.85786 29.6152 2.95837 29.6152 1.7868 30.7868C0.615222 31.9584 0.615222 33.8579 1.7868 35.0294L20.8787 54.1213ZM20 -8.06981e-08L20 52L26 52L26 8.06981e-08L20 -8.06981e-08Z" fill="white"/>
+                                </svg> 
+                            </span>
+                        </Link>
+                        <Link href={"/"} className='flex py-1 gap-2 w-[70%] border-[1.5px] border-white justify-center items-center rounded-full'>
+                            <p className='text-xl ' style={RobotoFont.style}>
+                            Tiktok
+                            </p>
+                            <span className='-rotate-[120deg]'>
+                                <svg width="15" height="46" viewBox="0 0 46 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.8787 54.1213C22.0503 55.2929 23.9497 55.2929 25.1213 54.1213L44.2132 35.0294C45.3848 33.8579 45.3848 31.9584 44.2132 30.7868C43.0416 29.6152 41.1421 29.6152 39.9706 30.7868L23 47.7574L6.02944 30.7868C4.85786 29.6152 2.95837 29.6152 1.7868 30.7868C0.615222 31.9584 0.615222 33.8579 1.7868 35.0294L20.8787 54.1213ZM20 -8.06981e-08L20 52L26 52L26 8.06981e-08L20 -8.06981e-08Z" fill="white"/>
+                                </svg> 
+                            </span>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+            <div className='w-full h-[400px] rounded-xl bg-[#ffffffef] mt-10 overflow-hidden'>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d746.2646001864857!2d-6.896276559439435!3d32.88190574542397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda42752fa5a6c5d%3A0xd7241ac6b9d10449!2s1337%20School!5e0!3m2!1sen!2sma!4v1705064653841!5m2!1sen!2sma" width="600" height="450" className='border-[0] !border-none !outline-none w-full h-full'  loading="lazy" cliprulereferrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div className='w-full h-[1px] bg-[#ffffffef] mt-10'>
+            </div>
+            <div className='flex justify-between items-center py-4'>
+                <p className='text-white text-lg' style={RobotoFont.style}>
+                    © 2023 Achraf Sabbar. All Rights Reserved.
+                </p>
+                <div className='flex gap-3 items-center'>
+                    <span className='flex gap-3 items-center'>
+                        <p className='text-white hover:underline cursor-pointer' style={RobotoFont.style}>
+                            Privacy Policy
+                        </p>
+                        <p className='text-white hover:underline cursor-pointer' style={RobotoFont.style}>
+                            Terms & Conditions
+                        </p>
+                    </span>
+                </div>
+                <div className='flex gap-3 items-center'>
+                    <p className='text-white text-lg' style={RobotoFont.style}>
+                        Powered by
+                    </p>
+                    <Image
+                        src={"/logo-w.svg"}
+                        alt=""
+                        width={1900}
+                        height={1080}
+                        className='object-cover w-[50px] z-0'
+                    />
+                </div>
+            </div>
         </div>
     )
 }
+
 
 export default function Home() {
     const bodyRef = useRef<HTMLDivElement>(null);
@@ -580,9 +827,12 @@ export default function Home() {
             <div className='bg-white min-w-full z-20 sticky top-0'>
                 <div className='xl:max-w-[1900px] m-auto bg-white'>
                     <Selection2 />
-                    <Selection3 />
-                    <Selection4 />
+                    <div className='relative bg-white'>
+                        <Selection3 />
+                        <Selection4 />
+                    </div>
                     <Selection5 />
+                    <Footer/>
                 </div>
             </div>
         </div>
