@@ -769,7 +769,7 @@ function Footer() {
                 </div>
             </div>
             <div className='w-full h-[400px] rounded-xl bg-[#ffffffef] mt-10 overflow-hidden'>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d746.2646001864857!2d-6.896276559439435!3d32.88190574542397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda42752fa5a6c5d%3A0xd7241ac6b9d10449!2s1337%20School!5e0!3m2!1sen!2sma!4v1705064653841!5m2!1sen!2sma" width="600" height="450" className='border-[0] !border-none !outline-none w-full h-full'  loading="lazy" cliprulereferrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d746.2646001864857!2d-6.896276559439435!3d32.88190574542397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda42752fa5a6c5d%3A0xd7241ac6b9d10449!2s1337%20School!5e0!3m2!1sen!2sma!4v1705064653841!5m2!1sen!2sma" width="600" height="450" className='border-[0] !border-none !outline-none w-full h-full'  loading="lazy" ></iframe>
             </div>
             <div className='w-full h-[1px] bg-[#ffffffef] mt-10'>
             </div>
