@@ -78,7 +78,7 @@ function Header() {
 
 function Selection1() {
     return (
-        <div className='flex justify-center items-center h-screen bg-black rounded-sm overflow-hidden sticky top-0'>
+        <div className='flex justify-center items-center h-screen bg-black rounded-sm overflow-hidden sticky top-0 z-0'>
             <Image
                 src="/images/G1.jpg"
                 alt=""
@@ -132,7 +132,7 @@ const CategorieCard = ({title, img, url}:{title: string, img:string, url:string}
 function Selection2() {
     
     return (
-        <div className='flex gap-10 flex-col h-screen bg-white rounded-sm overflow-hidden sticky top-0 py-7'>
+        <div className='flex gap-10 flex-col justify-around h-screen bg-white rounded-sm overflow-hidden sticky top-0 py-7'>
             <div className='flex justify-between items-center px-11 bg-black h-fit w-full'>
                 <div className=' flex flex-col justify-start items-start  py-6 z-10'>
                     <p className='text-2xl text-white text-center font-medium' style={RobotoFont.style}>
@@ -171,7 +171,7 @@ function Selection2() {
                     </div>
                 </div>
             </div>
-            <div>
+            <div >
                 <div className='flex justify-between items-center'>
                     <p style={RobotoFont.style} className='text-3xl font-semibold  py-6'>
                     Shop by Categories
@@ -180,7 +180,7 @@ function Selection2() {
                         See all
                     </Link>
                 </div>
-                <div className='grid grid-cols-3 gap-[200px] mt-14 px-11'>
+                <div className='grid grid-cols-3 gap-[200px] m-auto h-full px-11 '>
                     <CategorieCard title={"men Clothing"} img={"/images/men.png"} url={"/"}/>
                     <CategorieCard title={"Women Clothing"} img={"/images/women.png"} url={"/"}/>
                     <CategorieCard title={"Kids Clothing"} img={"/images/Kids.png"} url={"/"}/>
@@ -271,7 +271,7 @@ const SesionsCard = ({title, img, url}:{title: string, img:string, url:string}) 
                 className='object-cover w-full h-full absolute top-0 left-0 z-0 group-hover:opacity-50 transition-all duration-500 group-hover:blur-[1px]'
             />
             <div className='flex  z-10 self-end justify-between'>
-                <span className='max-w-[80%]'>
+                <span className=''>
                     <motion.p
                         variants={titleHover}
                         initial='initial'
@@ -286,7 +286,7 @@ const SesionsCard = ({title, img, url}:{title: string, img:string, url:string}) 
                         animate={hover ? 'animate' : 'initial'}
                         exit='exit'
                     className='text-lg text-white' style={RobotoFont.style}>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse harum voluptatibus dolor deserunt natus molestiae id in.
+                        {'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse harum voluptatibus dolor deserunt natus molestiae id in'}.
                     </motion.p>
                 </span>
                 <motion.div
@@ -294,7 +294,7 @@ const SesionsCard = ({title, img, url}:{title: string, img:string, url:string}) 
                     initial='initial'
                     animate={hover ? 'animate' : 'initial'}
                     exit='exit'
-                className='w-[60px] h-[60px] rounded-full border-[2px] border-white flex justify-center items-center'>
+                className='min-w-[60px] min-h-[60px] max-w-[60px] max-h-[60px] rounded-full border-[2px] border-white flex justify-center items-center'>
                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M24.5 2C24.5 1.17157 23.8284 0.500001 23 0.500001H9.5C8.67157 0.500001 8 1.17157 8 2C8 2.82843 8.67157 3.5 9.5 3.5L21.5 3.5L21.5 15.5C21.5 16.3284 22.1716 17 23 17C23.8284 17 24.5 16.3284 24.5 15.5V2ZM3.06066 24.0607L24.0607 3.06066L21.9393 0.93934L0.93934 21.9393L3.06066 24.0607Z" fill="white"/>
                     </svg> 
@@ -307,7 +307,7 @@ const SesionsCard = ({title, img, url}:{title: string, img:string, url:string}) 
 function Selection3() {
     
     return (
-        <div className='h-screen bg-white rounded-sm overflow-hidden sticky top-0 py-10  grid grid-cols-2 gap-10 grid-rows-3'>
+        <div className='h-screen bg-white rounded-sm overflow-hidden sticky top-0 py-10 px-8  grid grid-cols-2 gap-10 grid-rows-3 2xl:py-32'>
             <div className='w-full h-full bg-[#000000] row-span-2 relative  cursor-pointer'>
             <SesionsCard title={"Summer Collection"} img={"/images/summer.jpg"} url={"/"}/>
      
@@ -402,7 +402,7 @@ function Selection4() {
                     Our Bestseller
                 </p>
                 <div className='flex gap-1'>
-                    <div className='px-8 py-1 cursor-pointer bg-[rgba(246,215,173,0.83)] rounded-full font-medium' style={InterFont.style}>
+                    <div className='px-8 py-1 cursor-pointer bg-black text-white rounded-full font-medium' style={InterFont.style}>
                         Men
                     </div>
                     <div className='px-8 py-1 cursor-pointer rounded-full font-medium' style={InterFont.style}>
@@ -574,15 +574,17 @@ export default function Home() {
     
       }, [])
     return (
-        <div className='xl:max-w-[1900px] m-auto  '>
+        <div className=' m-auto  '>
             <Header />
-            <main className='px-10'>
-                <Selection1 />
-                <Selection2 />
-                <Selection3 />
-                <Selection4 />
-                <Selection5 />
-            </main>
+            <Selection1 />
+            <div className='bg-white min-w-full z-20 sticky top-0'>
+                <div className='xl:max-w-[1900px] m-auto bg-white'>
+                    <Selection2 />
+                    <Selection3 />
+                    <Selection4 />
+                    <Selection5 />
+                </div>
+            </div>
         </div>
   )
 }
