@@ -396,7 +396,7 @@ const BestsellerCard = ({img, title, description, price, url}:{img:string, title
 function Selection4() {
     
     return (
-        <div className='min-h-screen h-fit bg-blue-50 rounded-sm overflow-hidden   sticky 3xl:top-0  md:-top-1/2 -top-[calc(100%+620px)] py-10 flex flex-col items-center gap-28'>
+        <div className='min-h-screen h-fit bg-white rounded-sm overflow-hidden   sticky 3xl:top-0  md:-top-1/2 -top-[calc(100%+620px)] py-10 flex flex-col items-center gap-28'>
             <div className='flex flex-col items-center gap-20'>
                 <p className='text-4xl font-bold  px-11'>
                     Our Bestseller
@@ -426,13 +426,133 @@ function Selection4() {
 function Selection5() {
     
     return (
-        <div className='h-screen bg-[#F6F7F7] rounded-sm overflow-hidden sticky top-0   flex  justify-center items-center gap-28'>
-            <div className='w-[60%] h-full flex flex-col justify-center items-center gap-10'>
-
+        <div className='h-screen bg-white rounded-sm overflow-hidden sticky top-0 flex  flex-col items-center justify-around '>
+            <div className='w-full h-[80%] flex  items-center gap-10'>
+                <div className='w-[60%] h-full flex flex-col  gap-10'>
+                    <div>
+                        <p className='text-5xl font-bold  px-11'>
+                            {`Style Chronicles: Unveiling Our Fashion Blog's Finest Picks`}
+                        </p>
+                        <p className='text-xl text-[#000000ac] px-11 mt-4' style={RobotoFont.style}>
+                            {'Join us on a sartorial journey, where each post is a fashion tale waiting to unfold.'}
+                        </p>
+                    </div>
+                    <div className='grid grid-cols-2 gap-10 px-11'>
+                        <div className='w-full min-h-full '>
+                            <div className='w-full h-[450px] relative bg-black'>
+                                <Image
+                                    src={"/images/hotBlog3.jpg"}
+                                    alt=""
+                                    width={1900}
+                                    height={1080}
+                                    className='object-cover w-full h-full absolute top-0 left-0 z-0'
+                                />
+                            </div>
+                            <div>
+                                <p className='text-2xl text-black mt-4 font-medium capitalize' style={RobotoFont.style}>
+                                    {`The best summer dresses for every occasion`}
+                                </p>
+                                <p className='text-sm text-black mt-2 ' style={RobotoFont.style}>
+                                    {`Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.`}
+                                </p>
+                            </div>
+                        </div>
+                        <div className='w-full min-h-full '>
+                            <div className='w-full h-[450px] relative bg-black'>
+                                <Image
+                                    src={"/images/hotBlog2.jpg"}
+                                    alt=""
+                                    width={1900}
+                                    height={1080}
+                                    className='object-cover w-full h-full absolute top-0 left-0 z-0'
+                                />
+                            </div>
+                            <div>
+                                <p className='text-2xl text-black mt-4 font-medium capitalize' style={RobotoFont.style}>
+                                    {`The best summer dresses for every occasion`}
+                                </p>
+                                <p className='text-sm text-black mt-2 ' style={RobotoFont.style}>
+                                    {`Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.`}
+                                </p>
+                            </div>
+                        </div>
+                        {/* <div className='w-full h-full bg-black'>
+                            .
+                        </div> */}
+                    </div>
+                </div>
+                <div className='w-[40%] h-full flex relative flex-col py-4 justify-between items-center gap-10 bg-black'>
+                    <Image
+                        src={"/images/hotBlog1.jpg"}
+                        alt=""
+                        width={1900}
+                        height={1080}
+                        className='object-cover w-full h-full absolute top-0 left-0 z-0'
+                    />
+                    <div className='flex z-10 w-full items-center gap-3 px-5'>
+                        <p className='text-xl text-white ' style={RobotoFont.style}>
+                            Hot News
+                        </p>
+                        <div className='line w-[calc(100%-100px)] h-[2px] bg-white' />
+                    </div>
+                    <div className='flex justify-between gap-3 items-end px-5 z-10'>
+                        <div className='flex flex-col justify-center items-start  z-10'>
+                            <p className=' text-white  font-light' style={RobotoFont.style}>
+                                Date: September 21, 2030 - Kyoto, Japan
+                            </p>
+                            <p className='text-4xl text-white capitalize' style={RobotoFont.style}>
+                                {`The best summer dresses for every occasion`}
+                            </p>
+                            <p className='text-sm text-white ' style={RobotoFont.style}>
+                                {`Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.`}
+                            </p>
+                        </div>
+                        <motion.div
+                            className='min-w-[60px] min-h-[60px] max-w-[60px] max-h-[60px] rounded-full border-[2px] border-white flex justify-center items-center'>
+                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24.5 2C24.5 1.17157 23.8284 0.500001 23 0.500001H9.5C8.67157 0.500001 8 1.17157 8 2C8 2.82843 8.67157 3.5 9.5 3.5L21.5 3.5L21.5 15.5C21.5 16.3284 22.1716 17 23 17C23.8284 17 24.5 16.3284 24.5 15.5V2ZM3.06066 24.0607L24.0607 3.06066L21.9393 0.93934L0.93934 21.9393L3.06066 24.0607Z" fill="white" />
+                            </svg>
+                        </motion.div>
+                    </div>
+                </div>
             </div>
-            <div className='w-[40%] h-full flex flex-col justify-center items-center gap-10 bg-black'>
-                .
-
+            <div className='flex justify-between items-center px-11 bg-black h-fit w-full'>
+                <div className=' flex flex-col justify-start items-start  py-6 z-10'>
+                    <p className='text-2xl text-white text-center font-medium' style={RobotoFont.style}>
+                        Shop now, save more, enjoy life
+                    </p>
+                    <p style={CaveatFont.style} className='text-lg text-white text-center  font-medium'>
+                        {`Treat yourself today - you've earned it!`}
+                    </p>
+                </div>
+                <div className='text-white flex gap-3'>
+                    <div className='flex flex-col justify-center items-center'>
+                        <p className='text-5xl font-semibold' style={RobotoFont.style}>
+                            01
+                        </p>
+                        <p>
+                            Days
+                        </p>
+                    </div>
+                    <div className='line w-[1px] min-h-full bg-white' />
+                    <div className='flex flex-col justify-center items-center'>
+                        <p className='text-5xl font-semibold' style={RobotoFont.style}>
+                            11
+                        </p>
+                        <p>
+                            Hours
+                        </p>
+                    </div>
+                    <div className='line w-[1px] min-h-full bg-white' />
+                    <div className='flex flex-col justify-center items-center'>
+                        <p className='text-5xl font-semibold' style={RobotoFont.style}>
+                            44
+                        </p>
+                        <p>
+                            Minutes
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     )
