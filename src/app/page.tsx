@@ -114,7 +114,7 @@ function Selection1() {
 
 const CategorieCard = ({title, img, url}:{title: string, img:string, url:string}) => {
     return (
-        <div className='flex  justify-center items-center h-[700px] relative bg-[#F3F3F3] pb-8'>
+        <div className='flex min-w-[350px] w-full justify-center items-center h-full relative bg-[#F3F3F3] pb-8'>
             <Image
                 src={img}
                 alt=""
@@ -122,7 +122,7 @@ const CategorieCard = ({title, img, url}:{title: string, img:string, url:string}
                 height={1080}
                 className='object-cover w-full h-full absolute top-0 left-0 z-0'
             />
-            <Link href={url} className='text-4xl font-medium mt-5 z-10 self-end bg-[#ffffff] px-[18%] py-5 rounded-lg setShadow' style={RobotoFont.style}>
+            <Link href={url} className='xl:text-xl 2xl:text-2xl font-medium mt-5 z-10 self-end bg-[#ffffff] px-[18%] py-5 rounded-lg setShadow capitalize' style={RobotoFont.style}>
                 {title}
             </Link>
         </div>
@@ -132,7 +132,7 @@ const CategorieCard = ({title, img, url}:{title: string, img:string, url:string}
 function Selection2() {
     
     return (
-        <div className='flex gap-10 flex-col justify-around h-screen bg-white rounded-sm overflow-hidden sticky top-0 py-7'>
+        <div className='flex gap-10 flex-col justify-around min-h-screen bg-white rounded-sm overflow-hidden sticky top-0 px-8'>
             <div className='flex justify-between items-center px-11 bg-black h-fit w-full'>
                 <div className=' flex flex-col justify-start items-start  py-6 z-10'>
                     <p className='text-2xl text-white text-center font-medium' style={RobotoFont.style}>
@@ -171,7 +171,7 @@ function Selection2() {
                     </div>
                 </div>
             </div>
-            <div >
+            <div className='min-h-[70vh] overflow-hidden flex flex-col justify-between'>
                 <div className='flex justify-between items-center'>
                     <p style={RobotoFont.style} className='text-3xl font-semibold  py-6'>
                     Shop by Categories
@@ -180,11 +180,10 @@ function Selection2() {
                         See all
                     </Link>
                 </div>
-                <div className='grid grid-cols-3 gap-[200px] m-auto h-full px-11 '>
+                <div className='grid grid-cols-3 gap-[100px] m-auto h-[calc(70vh-100px)] px-11 w-full '>
                     <CategorieCard title={"men Clothing"} img={"/images/men.png"} url={"/"}/>
                     <CategorieCard title={"Women Clothing"} img={"/images/women.png"} url={"/"}/>
                     <CategorieCard title={"Kids Clothing"} img={"/images/Kids.png"} url={"/"}/>
-                    
                 </div>
             </div>
         </div>
@@ -259,7 +258,7 @@ const SesionsCard = ({title, img, url}:{title: string, img:string, url:string}) 
     }
     
     return (
-        <Link href={url} className='flex  justify-center items-center h-full w-full relative bg-[#000000] p-[50px] pb-[10px] pr] group'
+        <Link href={url} className='flex  justify-center items-center h-full w-full relative bg-[#000000] p-[20px] pb-[10px] pr] group'
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
         >
@@ -277,7 +276,7 @@ const SesionsCard = ({title, img, url}:{title: string, img:string, url:string}) 
                         initial='initial'
                         animate={hover ? 'animate' : 'initial'}
                         exit='exit'
-                    className='text-4xl font-medium text-white' style={RobotoFont.style}>
+                    className='lg:text-2xl xl:text-4xl text-xl font-medium text-white' style={RobotoFont.style}>
                         {title}
                     </motion.p>
                     <motion.p
@@ -285,7 +284,7 @@ const SesionsCard = ({title, img, url}:{title: string, img:string, url:string}) 
                         initial='initial'
                         animate={hover ? 'animate' : 'initial'}
                         exit='exit'
-                    className='text-lg text-white' style={RobotoFont.style}>
+                    className='xl:text-lg hidden md:block text-white' style={RobotoFont.style}>
                         {'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse harum voluptatibus dolor deserunt natus molestiae id in'}.
                     </motion.p>
                 </span>
@@ -307,7 +306,7 @@ const SesionsCard = ({title, img, url}:{title: string, img:string, url:string}) 
 function Selection3() {
     
     return (
-        <div className='h-screen bg-white rounded-sm overflow-hidden  py-10 px-8  grid grid-cols-2 gap-10 grid-rows-3 2xl:py-24'>
+        <div className='h-screen bg-white rounded-sm overflow-hidden  px-8  grid grid-cols-2 gap-10 grid-rows-3 py-8'>
             <div className='w-full h-full bg-[#000000] row-span-2 relative  cursor-pointer'>
             <SesionsCard title={"Summer Collection"} img={"/images/summer.jpg"} url={"/"}/>
      
@@ -450,9 +449,9 @@ function Selection5() {
     const [hoverBlog1, setHoverBlog1] = useState(false)
     const [hoverBlog2, setHoverBlog2] = useState(false)
     return (
-        <div className=' bg-white rounded-sm overflow-hidden sticky top-0 flex py-28 flex-col items-center justify-around '>
+        <div className=' bg-white rounded-sm overflow-hidden sticky top-0 flex py-8 flex-col items-center justify-around '>
             <div className='w-full h-[80%] flex  items-start gap-5'>
-                <div className='w-[60%] h-full flex flex-col  gap-10'>
+                <div className='w-[60%] h-[calc(100vh-64px)] flex flex-col  gap-10'>
                     <div>
                         <p className='text-5xl font-bold  px-11'>
                             {`Style Chronicles: Unveiling Our Fashion Blog's Finest Picks`}
@@ -461,12 +460,12 @@ function Selection5() {
                             {'Join us on a sartorial journey, where each post is a fashion tale waiting to unfold.'}
                         </p>
                     </div>
-                    <div className='flex justify-center h-full gap-10 px-11'>
+                    <div className='flex justify-center h-[calc(100%-50px)] gap-10 px-11'>
                         <div className='w-full min-h-full cursor-pointer group'
                             onMouseEnter={() => setHoverBlog1(true)}
                             onMouseLeave={() => setHoverBlog1(false)}
                         >
-                            <div className='w-full h-[350px] relative bg-black'>
+                            <div className='w-full h-[60%] relative bg-black'>
                                 <Image
                                     src={"/images/hotBlog3.jpg"}
                                     alt=""
@@ -499,7 +498,7 @@ function Selection5() {
                             onMouseEnter={() => setHoverBlog2(true)}
                             onMouseLeave={() => setHoverBlog2(false)}
                         >
-                            <div className='w-full h-[350px] relative bg-black'>
+                            <div className='w-full h-[60%] relative bg-black'>
                                 <Image
                                     src={"/images/hotBlog2.jpg"}
                                     alt=""
@@ -529,7 +528,7 @@ function Selection5() {
                         </div>
                     </div>
                 </div>
-                <div className='w-[40%] h-[800px] flex relative flex-col py-4  mt-2 mr-11 overflow-hidden justify-between items-center gap-10 bg-black'>
+                <div className='w-[40%] h-[calc(100vh-64px)] flex relative flex-col py-4  mt-2 mr-11 overflow-hidden justify-between items-center gap-10 bg-black'>
                     <Image
                         src={"/images/hotBlog1.jpg"}
                         alt=""
