@@ -1,6 +1,6 @@
 Visit the App:
 
-    Open your web browser and go to  [GarbGallery](https://garbgallery.vercel.app/)
+Open your web browser and go to  [GarbGallery](https://garbgallery.vercel.app/)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
